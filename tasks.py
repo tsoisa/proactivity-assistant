@@ -24,7 +24,7 @@ TASKS = [
     ("Last item", "def get_last(items):\n    return items[len(items)]", 2,
      "This raises an IndexError, so catch it.",
      "def get_last(items):\n    try:\n        return items[len(items)]\n    except IndexError:\n        return None", False),
-
+     
     ("Factorial", "def factorial(n):\n    result = 1\n    for i in range(1, n):\n        result *= i\n    return result", 3,
      "The loop stops before multiplying by n.",
      "def factorial(n):\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result", True),
