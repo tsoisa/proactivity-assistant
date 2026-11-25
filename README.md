@@ -36,10 +36,11 @@ The app opens in a browser. To see the adaptation: click 'use this code' on the 
 |---|---|---|---|
 | Setup | Streamlit test app, virtual environment, `.gitignore`, `requirements.txt` | App opened in browser; `.venv` not uploaded |[3571321](https://github.com/tsoisa/proactivity-assistant/commit/3571321)|
 | Task screen | 8 tasks with simulated fixes, 3 deliberately wrong. "Use this code" compares the text box with the original fix to ensure reliance is being measured and not self report | I tested each fix so the right/wrong labels are accurate; fixed long code lines being cut off |[be0a4e7](https://github.com/tsoisa/proactivity-assistant/commit/be0a4e7)|
-| Adaptation | Suggest/Notify modes, thresholds, reason shown on every change, mode switch, interaction log | Full run: stepped down after 3 tasks, back up after two edits, the switch worked but the log flagged the wrong fixes |[e2b11ba](https://github.com/tsoisa/proactivity-assistant/commit/e2b11ba)|
+| Adaptation | Suggest/Notify modes, thresholds, reason shown on every change, mode switch, interaction log | Full run: stepped down after 3 tasks, back up after two edits, the switch worked, and the log flagged the wrong fixes |[e2b11ba](https://github.com/tsoisa/proactivity-assistant/commit/e2b11ba)|
 | Thresholds | Tried `UP_AFTER = 3` but it took too long to get back to Suggest which slowed the tasks down so I kept 2 | Ran the full demo | [db31137](https://github.com/tsoisa/proactivity-assistant/commit/db31137) |
 | Interface text | Rewrote the mode messages buttons and task hints so they are clearer.|Re-ran the full demo | [db31137](https://github.com/tsoisa/proactivity-assistant/commit/db31137)|
 | Diagram | System architecture drawn in draw.io, grouped into interaction, sensing/logging and memory/decision layers and the adaptation loop highlighted | Checked every box and arrow matches the code |[b675446](https://github.com/tsoisa/proactivity-assistant/commit/b675446)|
+| Storyboards | Three storyboards drawn in draw.io from screenshots of the running app | Checked each frame matches the real screens | [afba69b](https://github.com/tsoisa/proactivity-assistant/commit/afba69b) |
 
 **Observations from test runs** (used in the report):
 - I accepted two fixes within about a second, and one of them was wrong, so response time could be another useful signal
