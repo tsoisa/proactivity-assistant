@@ -1,6 +1,6 @@
 # Proactivity Assistant
 
-*README prose word count: ~___*
+*README prose word count: ~920*
 
 A prototype coding assistant that lowers its proactivity when the user accepts its fixes without checking them. It starts by showing full fixes. After 3 fixes are accepted without changes, it only points to the line where the problem might be. Once the user starts checking again, full fixes come back.
 
