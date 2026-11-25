@@ -4,8 +4,8 @@ from tasks import TASKS
 
 st.set_page_config(layout="wide")
 
-DOWN_AFTER = 3 
-UP_AFTER = 2 # tested 3: too slow to return to Suggest; kept 2
+DOWN_AFTER = 3 # unedited accepts before switching to Notify
+UP_AFTER = 2 # tested 3 but too slow to return to Suggest so kept 2
 
 s = st.session_state 
 s.setdefault("i", 0)
@@ -22,11 +22,13 @@ def log(action, note=""):
                   "mode": s.mode, "action": action, "fix correct": correct, "note": note})
 
 def set_mode(mode, reason):
+    # Reset counters on every change of mode so one action can't reset the other 
     s.mode, s.reason = mode, reason
     s.unedited = s.engaged = 0
     log("mode change", f"to {mode}")
 
 def respond(action):
+    # Sensing: group the response as accepted unedited, edited or rejected
     fix, correct = TASKS[s.i][4], TASKS[s.i][5]
     if action == "use":
         action = "accepted_unedited" if s[f"code{s.i}"] == fix else "edited"
@@ -57,6 +59,7 @@ def override():
 st.title("Proactivity Assistant")
 st.caption("Suggestions are simulated (pre-written), not generated live.")
 
+# Feedback: show the current mode and why it changed
 top = st.columns([3, 1])
 (top[0].info if s.mode == "Suggest" else top[0].warning)(f"**Mode: {s.mode}**  \n{s.reason}")
 top[1].button(f"Switch to {'Notify' if s.mode == 'Suggest' else 'Suggest'}", on_click=override)
